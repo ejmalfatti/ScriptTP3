@@ -17,6 +17,6 @@ FREE=$(df -mP $DEV | grep -iv "disponibles" | awk {'print$4'})
 
 check_dir
 
-find /etc -type f -mtime -1 -exec ls -gGh --full-time '{}' \; | awk {'print$4,$5,$7'} >> /var/log/filesystem/ARCHIVES.log
+find / -type f -mtime -1 -exec ls -gGh --full-time '{}' \; | awk {'print$4,$5,$7'} >> /var/log/filesystem/ARCHIVES.log
 
 printf "%s\n" "$FECHA   Espacio libre: $FREE MB" >> /var/log/filesystem/FREE.log
